@@ -1,11 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 
-/* GET home page. */
+const router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   res.render('index', {
-    title: 'Initiate'
+
   });
 });
 

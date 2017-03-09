@@ -1,5 +1,10 @@
 <h1>{{title}}</h1>
 <p>Awesome job. The public key we received was:</p>
-<pre>{{message}}</pre>
-<p>Your embed URL is:</p>
-<a href="/submit?public-key={{publicKey}}"><pre>/submit?public-key={{publicKey}}</pre></a>
+<pre>{{publicKey}}</pre>
+<p><a href="/create">Not correct?</a></p>
+<h3>Embed code</h3>
+<textarea class="mdl-textfield__input" type="text" rows= "3" readonly>
+<iframe src="{{#if ENV_DEVELOPMENT}}http://localhost:{{SERVER_PORT}}{{else}}https://initiatecontact.com{{/if}}{{submitURL}}" width="300px" height="400px" />
+</textarea>
+<h2>Give it a try:</h2>
+<iframe src="{{#if ENV_DEVELOPMENT}}http://localhost:{{SERVER_PORT}}{{else}}https://initiatecontact.com{{/if}}{{submitURL}}" width="300px" height="400px" />
