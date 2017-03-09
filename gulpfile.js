@@ -1,19 +1,40 @@
-var gulp = require('gulp'),
-  nodemon = require('gulp-nodemon'),
-  plumber = require('gulp-plumber'),
-  livereload = require('gulp-livereload'),
-  sass = require('gulp-sass');
+var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
+var plumber = require('gulp-plumber');
+var livereload = require('gulp-livereload');
+var sass = require('gulp-sass');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var gutil = require('gulp-util');
+var uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
-  gulp.src('./public/css/*.scss')
+  gulp.src('./public_src/css/*.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(gulp.dest('./public/css'))
     .pipe(livereload());
 });
 
+gulp.task('js', function () {
+  var b = browserify({
+    entries: './public_src/js/index.js',
+    debug: true,
+    transform: [['babelify', {presets: ['es2015']}]]
+  });
+
+  return b.bundle()
+    .pipe(source('index.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .on('error', gutil.log)
+    .pipe(gulp.dest('./public/js/'));
+});
+
 gulp.task('watch', function() {
-  gulp.watch('./public/css/*.scss', ['sass']);
+  gulp.watch('./public_src/css/**/*.scss', ['sass']);
+  gulp.watch('./public_src/js/**/*.js', ['js']);
 });
 
 gulp.task('develop', function () {
@@ -35,6 +56,7 @@ gulp.task('develop', function () {
 
 gulp.task('default', [
   'sass',
+  'js',
   'develop',
   'watch'
 ]);
