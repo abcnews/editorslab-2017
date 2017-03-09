@@ -7,9 +7,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
+var kbpgp = require('kbpgp');
 
+var encrypt = require('./lib/encrypt');
 var routes = require('./routes/index');
 var users = require('./routes/user');
+var create = require('./routes/create');
 var submit = require('./routes/submit');
 
 var app = express();
@@ -38,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/create', create);
 app.use('/submit', submit);
 
 /// catch 404 and forward to error handler
@@ -74,5 +78,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
+encrypt.init(kbpgp);
 
 module.exports = app;

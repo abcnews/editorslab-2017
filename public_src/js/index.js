@@ -1,5 +1,8 @@
-const encrypt = require('./utils/encrypt');
+const encrypt = require('../../lib/encrypt');
 
+encrypt.init(window.kbpgp);
+
+const errEl = document.querySelector('[name="err"]');
 const bareMessageEl = document.querySelector('[name="bare-message"]');
 const messageEl = document.querySelector('[name="message"]');
 const publicKeyEl = document.querySelector('[name="public-key"]');
@@ -19,8 +22,12 @@ function encryptBareMessage(e) {
   });
 }
 
+if (errEl) {
+  console.error(errEl.value);
+}
+
 if (bareMessageEl && publicKeyEl && publicKeyEl.value && messageEl) {
   bareMessageEl.oninput = encryptBareMessage; // ?
-  // bareMessageEl.onkeyup = encryptBareMessage; // ?
-  // bareMessageEl.onpaste = encryptBareMessage; // ?
+  bareMessageEl.onkeyup = encryptBareMessage; // ?
+  bareMessageEl.onpaste = encryptBareMessage; // ?
 }
