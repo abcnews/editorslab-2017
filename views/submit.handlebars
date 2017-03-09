@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <textarea name="bare-message" placeholder="Type your message here"></textarea>
-<input type="hidden" name="public-key" value="{{publicKey}}">
-<form method="post">
-  <input type="hidden" name="message">
-  <button type="submit">Send</button>
+<form action="/submit" method="post">
+  <input type="hidden" name="public-key" value="{{publicKey}}">
+  <input type="hidden" name="message" />
+  <button type="submit">Submit</button>
 </form>
