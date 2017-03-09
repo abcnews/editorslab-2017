@@ -1,0 +1,10 @@
+{
+  "generator-express": {
+    "promptValues": {
+      "type": "Basic",
+      "viewEngine": "Handlebars",
+      "cssPreprocessor": "Node-Sass",
+      "buildTool": "Gulp"
+    }
+  }
+}
