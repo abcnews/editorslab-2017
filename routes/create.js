@@ -20,7 +20,6 @@ router.post('/', (req, res) => {
 
   if (!username || !email) {
     return res.render('create', {
-      title: 'Create',
       err: new Error(`You're missing some information.`),
 			username,
 			email
@@ -54,14 +53,12 @@ router.post('/', (req, res) => {
 		const submitURL = `/submit?user=${user.id}`;
 
     res.render('create-done', {
-      title: 'Create ▸ Thanks',
       user,
       submitURL
     });
 	})
   .catch(err => {
     res.render('create', {
-      title: 'Create',
       err
     });
   });

@@ -2,6 +2,17 @@ $color--primary: #C04848;
 $color--accent: #530748;
 $font-family: "Source Sans Pro";
 
+@font-face {
+	font-family: 'ABCSans-Rounded';
+	src: url('/fonts/ABCSans-Rounded.eot');
+	src: local('☺'),
+    url('/fonts/ABCSans-Rounded.woff') format('woff'),
+    url('/fonts/ABCSans-Rounded.ttf') format('truetype'),
+    url('/fonts/ABCSans-Rounded.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 html {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   background: linear-gradient(-45deg, #480048, $color--primary);
@@ -17,7 +28,10 @@ html {
 h1,
 h2,
 h3 {
-  text-align: center;
+  .namespace-create & {
+    font-family: "ABCSans-Rounded", Arial, Helvetica, sans-serif;
+    text-align: center;
+  }
 }
 
 h2 {
@@ -66,7 +80,14 @@ img.logo {
 }
 
 .screenshot {
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
+  width: 360px;
+  max-width: 100%;
+
+  & > img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .how-steps {
@@ -160,7 +181,7 @@ img.logo {
 .embed-code {
   padding: 10px;
   background-color: white;
-  color: black;
+  color: #666;
 }
 
 .embed-demo {
@@ -212,10 +233,16 @@ img.logo {
     .bio {
       margin-left: 50px;
       padding: 10px;
+
+			small {
+				display: block;
+				margin-top: -4px;
+				font-size: 12px;
+			}
     }
     h2 {
       margin: 0;
-      line-height: auto;
+      line-height: 32px;
     }
     .how {
       clear: both;
@@ -227,8 +254,8 @@ img.logo {
       justify-content: space-between;
       vertical-align: middle;
       p {
-        height: 100%;
-        line-height: 100%;
+        height: 40px;
+        line-height: 40px;
         text-transform: uppercase;
         font-weight: bold;
         color: #fff;
@@ -240,7 +267,8 @@ img.logo {
         }
       }
       button {
-        background-color: #C04848;
+        height: 40px;
+				line-height: 40px;
       }
     }
   }
@@ -262,17 +290,14 @@ img.logo {
     }
   }
 
-  form button {
-    width: 100%;
-    background-color: #C04848;
-    color: #fff;
-  }
-
   .warning {
     border: 2px solid rgba(255,255,255, 0.6);
-    background: url("/img/!.svg") no-repeat top right;
     padding: 15px;
     margin-bottom: 15px;
+
+		.warning-content {
+	    background: url("/img/!.svg") no-repeat top right;
+		}
 
     h2 {
       font-weight: bold;
@@ -282,7 +307,7 @@ img.logo {
     }
 
     ul {
-      margin: 0;
+      margin: -10px 0 5px 10px;
       padding: 0;
       li {
         margin: 0;

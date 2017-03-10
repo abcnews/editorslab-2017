@@ -8,7 +8,7 @@
 <div class="card">
   <img width="50" height="50" class="avatar" src="{{user.avatar}}" />
   <div class="bio">
-    <h2>{{user.name}}</h2>
+    <h2>{{user.name}}{{#if user.bio}}<small>{{user.bio}}</small>{{/if}}</h2>
   </div>
 
   <div class="how">
@@ -17,13 +17,15 @@
   </div>
 </div>
 <div class="warning">
-  <h2>Hang on a minute</h2>
-  <p>Don't use this tool if:</p>
-  <ul>
-    <li>You're on a government or corporate network.</li>
-    <li>You're on a computer that isn't yours.</li>
-  </ul>
-  <p><a href="/faq">Find out more</a></p>
+  <div class="warning-content">
+    <h2>Hang on a minute</h2>
+    <p>Don't use this tool if:</p>
+    <ul>
+      <li>You're on a government or corporate network.</li>
+      <li>You're on a computer that isn't yours.</li>
+    </ul>
+    <a href="/faq">Find out more</a>
+  </div>
 </div>
 <div class="input">
   <textarea name="bare-message" placeholder="Your message"></textarea>
@@ -33,7 +35,7 @@
   <input type="hidden" name="user" value="{{user.id}}">
   <input type="hidden" name="public-key" value="{{user.publicKey}}">
   <input type="hidden" name="message" />
-  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Send directly to {{user.name}}</button>
+  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored full">Send directly to {{user.name}}</button>
 </form>
 <footer>
   <a href="/faq">FAQ</a>
