@@ -1,3 +1,4 @@
+data.sqlite
 node_modules/
 public/components
 .nyc_output
