@@ -4,7 +4,7 @@ const db = require('../lib/db');
 const encrypt = require('../lib/encrypt');
 
 const MAILGUN_API_KEY = 'key-579a45dd4383484789a7172bf22dcf9b';
-const MAILGUN_DOMAIN = 'sandboxab94e321b77645f8b315a2a5789ec9a9.mailgun.org';
+const MAILGUN_DOMAIN = 'initiatecontact.com';
 
 const mailgun = MailgunJS({apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
 
@@ -52,8 +52,6 @@ router.post('/', (req, res, next) => {
       if (err) {
         reject(err);
       }
-
-      console.log(body);
 
       resolve(user);
     })
