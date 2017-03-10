@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
 const kbpgp = require('kbpgp');
 const encrypt = require('./lib/encrypt');
-const index = require('./routes/index');
 const create = require('./routes/create');
 const submit = require('./routes/submit');
 
@@ -36,8 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/create', create);
+app.use('/', create);
 app.use('/submit', submit);
 
 /// catch 404 and forward to error handler
