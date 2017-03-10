@@ -1,6 +1,12 @@
 const express = require('express');
+const MailgunJS = require('mailgun-js');
 const db = require('../lib/db');
 const encrypt = require('../lib/encrypt');
+
+const MAILGUN_API_KEY = 'key-579a45dd4383484789a7172bf22dcf9b';
+const MAILGUN_DOMAIN = 'sandboxab94e321b77645f8b315a2a5789ec9a9.mailgun.org';
+
+const mailgun = MailgunJS({apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
 
 const router = express.Router();
 
@@ -35,6 +41,22 @@ router.post('/', (req, res, next) => {
   }
 
   loadUser(id)
+  .then(user => new Promise((resolve, reject) => {
+    mailgun.messages().send({
+      from: `Initiate <notifications@${MAILGUN_DOMAIN}>`,
+      to: user.email,
+      subject: 'New secure message',
+      text: req.body.message
+    }, (err, body) => {
+      if (err) {
+        reject(err);
+      }
+
+      console.log(body);
+
+      resolve(user);
+    })
+  }))
   .then(user => {
     res.render('submit-done', {
       title: 'Submit ▸ Thanks',

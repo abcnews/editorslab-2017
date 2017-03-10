@@ -17,6 +17,7 @@
     "express": "^4.13.3",
     "express-handlebars": "^3.0.0",
     "kbpgp": "^2.0.65",
+    "mailgun-js": "^0.8.2",
     "morgan": "^1.6.1",
     "pify": "^2.3.0",
     "request": "^2.81.0",
