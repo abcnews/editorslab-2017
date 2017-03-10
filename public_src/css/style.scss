@@ -2,6 +2,7 @@ $color--primary: #C04848;
 $color--accent: #530748;
 
 html {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   background: linear-gradient(-45deg, #480048, $color--primary);
   color: white;
 }
@@ -10,6 +11,32 @@ html {
   /* This background is dark, so we set text to white. Use 87% black instead if
      your background is light. */
   color: white;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+
+  .namespace-create & {
+    margin-top: 60px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+
+  .namespace-create & {
+    margin-top: 0;
+  }
+}
+
+form {
+  color: black;
 }
 
 img.logo {
@@ -23,10 +50,22 @@ img.logo {
   padding: 20px;
   margin: 0 auto;
 
-
   header {
     text-align: center;
   }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.full {
+  width: 100%;
+}
+
+.screenshot {
+  margin-bottom: 60px;
 }
 
 .how-steps {
@@ -39,30 +78,93 @@ img.logo {
     width: 1000px;
   }
 
+
   & > :nth-child(odd) {
-    flex-basis: 0 0 200px;
-    margin: 0 auto;3
-    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 240px;
     text-align: center;
+
+
+    @media (min-width: 1000px) {
+      flex: 0 0 180px;
+      max-width: 180px;
+    }
+
+    & > :first-child {
+      min-height: 80px;
+    }
   }
 }
 
 .arrow {
+  margin: 0 0 16px;
+  width: 100%;
+  height: 80px;
   background-image: url(/img/arrow-vertical.svg);
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
-  height: 80px;
 
   @media (min-width: 1000px) {
-    background-image: url(/img/arrow-horiontal.svg);
+    margin: 24px 0 0;
     height: 20px;
+    background-image: url(/img/arrow-horizontal.svg);
   }
 }
 
 .how-buttons {
-  @media (min-width: 1000px) {
-    margin: 0 -250px;
-    width: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    margin: 0 -150px;
+    width: 800px;
+  }
+
+  & > * {
+    margin: 10px;
+  }
+
+  & > :not(:first-child) {
+    flex-grow: 1;
+  }
+}
+
+.namespace-create .mdl-card {
+  margin-bottom: 20px;
+  min-height: auto;
+}
+
+#public-key-confirmation {
+  display: none;
+  padding: 10px;
+  background-color: white;
+  color: black;
+
+  & > * {
+    overflow-x: auto;
+  }
+}
+
+#public-key-confirmation:target {
+  display: block;
+}
+
+#public-key-confirmation:target + * {
+  display: none;
+}
+
+.embed-code {
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+.embed-demo {
+  & > iframe {
+    margin: 0 -20px;
+    width: 300px;
   }
 }
