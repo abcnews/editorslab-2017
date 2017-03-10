@@ -9,6 +9,7 @@ const kbpgp = require('kbpgp');
 const encrypt = require('./lib/encrypt');
 const create = require('./routes/create');
 const submit = require('./routes/submit');
+const faq = require('./routes/faq');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', create);
 app.use('/submit', submit);
+app.use('/faq', faq);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
