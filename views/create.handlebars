@@ -1,10 +1,28 @@
 <h3>Safe, secure, contact</h3>
 <p>Maybe you’ve heard these different marketing terms, maybe you haven’t. Either way, let me help to clarify the difference between them, because you should have all three if you want to market successfully. And knowing what they are may be your first step to accomplishing all three for your business.</p>
 <h2>How does it work?</h2>
-<div>
-  Stuff
+<div class="how-steps">
+  <div>
+    <img src="/img/how-a.svg" />
+    <p>Every keypress is encrypted in your message as you type.</p>
+  </div>
+  <div class="arrow"></div>
+  <div>
+    <img src="/img/how-b.svg" />
+    <p>When you hit send, the encrypted messgage is sent to the initiate server.</p>
+  </div>
+  <div class="arrow"></div>
+  <div>
+    <img src="/img/how-c.svg" />
+    <p>Then the encrypted message is emailed to your point-of-contact. We can never read your message.</p>
+  </div>
+  <div class="arrow"></div>
+  <div>
+    <img src="/img/how-d.svg" />
+    <p>Your point-of-contact uses a private key that only they have to read your message.</p>
+  </div>
 </div>
-<div>
+<div class="how-buttons">
   <a href="/faq" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Ok, but I’d like to know more</a>
   <a href="#sign-up" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Sure, I’ll give it a go</a>
 </div>
@@ -12,10 +30,20 @@
 <h2 id="sign-up">Sign up with initiate</h2>
 
 <form action="/" method="post">
-  <div class="mdl-card">
-    <input type="text" name="username" value="{{username}}" placeholder="Keybase username" />
-    <input type="email" name="email" value="{{email}}" placeholder="Email address" validate />
-    <button class="mdl-button mdl-js-button whats-this-button">What's this?</button>
+  <div class="mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__actions mdl-card--border">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="username" id="username-input" value="{{username}}">
+        <label class="mdl-textfield__label" for="username-input">Keybase username</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="email" id="email-input" value="{{email}}" validate>
+        <label class="mdl-textfield__label" for="email-input">Email address</label>
+      </div>
+    </div>
+    <div class="mdl-card__menu">
+      <a href="#whats-this">What's this?</a>
+    </div>
   </div>
   <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Sign me up</button>
 </form>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="16px" viewBox="0 0 66 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Artboard" transform="translate(-393.000000, -649.000000)" stroke="#FFFFFF" stroke-width="3">
+            <g id="Container">
+                <g id="How?" transform="translate(194.000000, 515.000000)">
+                    <g id="Arrow" transform="translate(200.000000, 136.000000)">
+                        <path d="M1,6 L60.5524978,6" id="Line"></path>
+                        <polyline id="Path-5" stroke-linejoin="round" points="57 0 63.3245553 6.32455532 57.3140328 12.3350779"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
