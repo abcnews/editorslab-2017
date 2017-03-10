@@ -190,7 +190,7 @@ img.logo {
         .submit .card .how p img {
           margin: 5px;
           vertical-align: middle; }
-      .submit .card .how button {
+      .submit .card .how .mdl-button {
         height: 40px;
         line-height: 40px; }
   .submit .input {
