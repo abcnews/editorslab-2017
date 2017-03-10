@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   const email = req.body['email'];
 
   if (!username || !email) {
-    res.render('create', {
+    return res.render('create', {
       title: 'Create',
       err: new Error(`You're missing some information.`),
 			username,
