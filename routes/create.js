@@ -9,9 +9,7 @@ const pRequest = pify(request, {multiArgs: true});
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('create', {
-    title: 'Create'
-  });
+  res.render('create', {});
 });
 
 router.post('/', (req, res) => {
