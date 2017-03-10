@@ -1,31 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="submit">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{#if title}}{{title}} | {{/if}}Initiate</title>
-    <link rel="stylesheet" href="/vendor/material.custom.min.css">
+    <link rel="stylesheet" href="/vendor/material.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     {{#if ENV_DEVELOPMENT}}
     <script src="http://localhost:35729/livereload.js"></script>
     {{/if}}
   </head>
   <body>
     <div class="layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent">
+      <header>
         <img class="logo" width="169px" height="37.5px" src="/img/logo.svg"/>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Initiate</span>
-        <nav class="mdl-navigation">
-          {{> menu}}
-        </nav>
-      </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <img class="logo" width="169px" height="37.5px" src="/img/logo.svg"/>
           {{{body}}}
         </div>
       </main>

@@ -119,6 +119,98 @@ img.logo {
   background-color: white;
   color: black; }
 
-.embed-demo > iframe {
-  margin: 0 -20px;
-  width: 300px; }
+.embed-demo {
+  margin: 0 -20px; }
+  .embed-demo > iframe {
+    width: 360px;
+    max-width: 100%; }
+
+.submit {
+  color: rgba(255, 255, 255, 0.6); }
+  .submit .intro {
+    text-align: center; }
+  .submit header, .submit main, .submit footer {
+    padding: 15px; }
+  .submit .page-content {
+    padding: 0; }
+  .submit header {
+    background: linear-gradient(90deg, rgba(72, 0, 72, 0.6), rgba(72, 0, 72, 0.3));
+    height: auto; }
+  .submit .card .avatar {
+    display: block;
+    border-radius: 50%; }
+  .submit .card {
+    background: rgba(79, 0, 72, 0.5);
+    margin-bottom: 10px; }
+    .submit .card .avatar {
+      margin: 10px;
+      float: left; }
+    .submit .card .bio {
+      margin-left: 50px;
+      padding: 10px; }
+    .submit .card h2 {
+      margin: 0;
+      line-height: auto; }
+    .submit .card .how {
+      clear: both;
+      width: 100%;
+      background: rgba(79, 4, 72, 0.4);
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      vertical-align: middle; }
+      .submit .card .how p {
+        height: 100%;
+        line-height: 100%;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #fff;
+        margin: 0;
+        vertical-align: middle; }
+        .submit .card .how p img {
+          margin: 5px;
+          vertical-align: middle; }
+      .submit .card .how button {
+        background-color: #C04848; }
+  .submit .input {
+    background: #fff;
+    padding: 15px 15px 30px 15px;
+    margin-bottom: 15px; }
+    .submit .input textarea, .submit .input input {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      border: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      margin-top: 20px; }
+    .submit .input textarea {
+      min-height: 4em; }
+  .submit form button {
+    width: 100%;
+    background-color: #C04848;
+    color: #fff; }
+  .submit .warning {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: url("/img/!.svg") no-repeat top right;
+    padding: 15px;
+    margin-bottom: 15px; }
+    .submit .warning h2 {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0 0 5px 0;
+      line-height: normal; }
+    .submit .warning ul {
+      margin: 0;
+      padding: 0; }
+      .submit .warning ul li {
+        margin: 0;
+        padding: 0;
+        list-style-type: square; }
+  .submit h1, .submit h2, .submit h3 {
+    color: white; }
+  .submit h1 {
+    font-size: 20px;
+    margin: 0; }
+  .submit h2 {
+    font-size: 16px; }

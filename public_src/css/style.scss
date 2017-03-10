@@ -1,5 +1,6 @@
 $color--primary: #C04848;
 $color--accent: #530748;
+$font-family: "Source Sans Pro";
 
 html {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
@@ -163,8 +164,146 @@ img.logo {
 }
 
 .embed-demo {
+  margin: 0 -20px;
+
   & > iframe {
-    margin: 0 -20px;
-    width: 300px;
+    width: 360px;
+    height: 800px;
+    max-width: 100%;
   }
+}
+
+
+.submit {
+
+  color: rgba(255,255,255,0.6);
+
+  .intro {
+    text-align: center;
+  }
+
+  header, main, footer {
+    padding: 15px;
+  }
+
+  .page-content {
+    padding: 0;
+  }
+
+  header {
+    background: linear-gradient(90deg, rgba(72,0,72,0.6), rgba(72,0,72,0.3));
+    height: auto;
+  }
+
+  .card .avatar {
+
+    display: block;
+    border-radius: 50%;
+  }
+
+  .card {
+    background: rgba(79,0,72,0.5);
+    margin-bottom: 10px;
+
+    .avatar {
+      margin: 10px;
+      float: left;
+    }
+    .bio {
+      margin-left: 50px;
+      padding: 10px;
+    }
+    h2 {
+      margin: 0;
+      line-height: auto;
+    }
+    .how {
+      clear: both;
+      width: 100%;
+      background: rgba(79,4,72,0.4);
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      vertical-align: middle;
+      p {
+        height: 100%;
+        line-height: 100%;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #fff;
+        margin: 0;
+        vertical-align: middle;
+        img {
+          margin: 5px;
+          vertical-align: middle;
+        }
+      }
+      button {
+        background-color: #C04848;
+      }
+    }
+  }
+
+  .input {
+    background: #fff;
+    padding: 15px 15px 30px 15px;
+    margin-bottom: 15px;
+    textarea, input {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      border: none;
+      border-bottom: 2px solid rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+    textarea {
+      min-height: 4em;
+    }
+  }
+
+  form button {
+    width: 100%;
+    background-color: #C04848;
+    color: #fff;
+  }
+
+  .warning {
+    border: 2px solid rgba(255,255,255, 0.6);
+    background: url("/img/!.svg") no-repeat top right;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    h2 {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0 0 5px 0;
+      line-height: normal;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        list-style-type: square;
+      }
+    }
+  }
+
+  h1,h2,h3 {
+    color: rgba(255,255,255,1);
+  }
+
+  h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+
 }
