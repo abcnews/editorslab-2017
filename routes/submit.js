@@ -24,7 +24,8 @@ router.get('/', (req, res, next) => {
   .then(user => {
     res.render('submit', {
       title: 'Submit',
-      user
+      user,
+      layout: 'submit'
     });
   })
   .catch(next);

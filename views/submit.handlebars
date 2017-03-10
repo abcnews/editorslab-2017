@@ -1,14 +1,41 @@
 {{#if err}}
 {{err}}
 {{else}}
-<h1>{{title}} to {{user.name}}</h1>
-<img src="{{user.avatar}}" />
-<textarea name="bare-message" placeholder="Your message"></textarea>
-<textarea name="bare-name" placeholder="Your name or a pseudonym (optional)"></textarea>
+<div class="intro">
+  <h1>Do you have a lead?</h1>
+  <p>Make contact securely. Send a message that can only be seen by:</p>
+</div>
+<div class="card">
+  <img width="50" height="50" class="avatar" src="{{user.avatar}}" />
+  <div class="bio">
+    <h2>{{user.name}}</h2>
+  </div>
+
+  <div class="how">
+    <p><img alt="lock icon" src="/img/lock.svg"> This message is secure</p>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">How?</button>
+  </div>
+</div>
+<div class="warning">
+  <h2>Hang on a minute</h2>
+  <p>Don't use this tool if:</p>
+  <ul>
+    <li>You're on a government or corporate network.</li>
+    <li>You're on a computer that isn't yours.</li>
+  </ul>
+  <p><a href="/faq">Find out more</a></p>
+</div>
+<div class="input">
+  <textarea name="bare-message" placeholder="Your message"></textarea>
+  <input name="bare-name" placeholder="Your name or a pseudonym (optional)">
+</div>
 <form action="/submit" method="post">
   <input type="hidden" name="user" value="{{user.id}}">
   <input type="hidden" name="public-key" value="{{user.publicKey}}">
   <input type="hidden" name="message" />
-  <button type="submit">Submit</button>
+  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Send directly to {{user.name}}</button>
 </form>
+<footer>
+  <a href="/faq">FAQ</a>
+</footer>
 {{/if}}
