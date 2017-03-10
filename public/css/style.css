@@ -123,6 +123,7 @@ img.logo {
   margin: 0 -20px; }
   .embed-demo > iframe {
     width: 360px;
+    height: 800px;
     max-width: 100%; }
 
 .submit {

@@ -62,7 +62,8 @@ router.post('/', (req, res, next) => {
     res.render('submit-done', {
       title: 'Submit ▸ Thanks',
       message: req.body.message,
-      user
+      user,
+      layout: 'submit'
     });
   })
   .catch(next);
