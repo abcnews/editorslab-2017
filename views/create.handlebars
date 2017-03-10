@@ -1,7 +1,9 @@
 <h1>{{title}}</h1>
 {{#if err}}<input type="hidden" name="err" value="{{err}}">{{/if}}
 <form action="/create" method="post">
-  <textarea name="public-key" placeholder="Enter your public key here"></textarea>
+  <input type="text" name="username" value="{{username}}" placeholder="Keybase username" />
+  <br>
+  <input type="email" name="email" value="{{email}}" placeholder="Email address" validate />
   <br>
   <button type="submit">Create</button>
 </form>

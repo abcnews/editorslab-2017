@@ -8,7 +8,6 @@ const exphbs  = require('express-handlebars');
 const kbpgp = require('kbpgp');
 const encrypt = require('./lib/encrypt');
 const index = require('./routes/index');
-const users = require('./routes/user');
 const create = require('./routes/create');
 const submit = require('./routes/submit');
 
@@ -38,7 +37,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/create', create);
 app.use('/submit', submit);
 

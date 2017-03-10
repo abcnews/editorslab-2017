@@ -1,19 +1,12 @@
 const express = require('express');
-const sqlite3 = require('sqlite3');
+const pify = require('pify');
+const request = require('request');
+const db = require('../lib/db');
 const encrypt = require('../lib/encrypt');
-const router = express.Router();
 
-const db = new Promise((resolve, reject) => {
-	let conn = new sqlite3.Database("data.sqlite");
-	conn.serialize(() => {
-		conn.run(`CREATE TABLE IF NOT EXISTS data
-				(
-					username TEXT,
-					email TEXT,
-					fingerprint TEXT
-				)`, (err) => err ? reject(err) : resolve(conn));
-	});
-});
+const pRequest = pify(request, {multiArgs: true});
+
+const router = express.Router();
 
 router.get('/', (req, res) => {
   res.render('create', {
@@ -22,18 +15,50 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const publicKey = req.body['public-key'];
+  const username = req.body['username'];
+  const email = req.body['email'];
 
-  encrypt.check(publicKey)
-  .then(() => {
-    const submitURL = `/submit?public-key=${encodeURIComponent(publicKey)}`;
+  if (!username || !email) {
+    res.render('create', {
+      title: 'Create',
+      err: new Error(`You're missing some information.`),
+			username,
+			email
+    });
+  }
+
+  const lookupURL = `https://keybase.io/_/api/1.0/user/lookup.json?usernames=${username}&fields=pictures,profile,public_keys`;
+
+  pRequest(lookupURL)
+  .then(result => new Promise((resolve, reject) => {
+		const [status, body] = result;
+		const lookup = JSON.parse(body);
+
+    if (lookup.them[0] === null) {
+      reject(new Error(`No user found for username: ${username}`))
+    }
+
+    resolve(lookup.them[0]);
+  }))
+  .then(user => {
+    return saveUser({
+      username,
+			email,
+      publicKey: user.public_keys.primary.bundle,
+      name: user.profile.full_name,
+			bio: user.profile.bio,
+      avatar: user.pictures.primary.url
+    });
+  })
+	.then(user => {
+		const submitURL = `/submit?user=${user.id}`;
 
     res.render('create-done', {
       title: 'Create ▸ Thanks',
-      publicKey,
+      user,
       submitURL
     });
-  })
+	})
   .catch(err => {
     res.render('create', {
       title: 'Create',
@@ -45,12 +70,22 @@ router.post('/', (req, res) => {
 module.exports = router;
 
 function saveUser(user) {
+	const row = Object.keys(user).reduce((memo, key) => {
+		memo['$' + key] = user[key];
+
+		return memo;
+	}, {});
+
   return new Promise((resolve, reject) => {
-    db.then(function(db) {
-      db.run("INSERT INTO data (username, email, fingerprint) VALUES ($username, $email, $fingerprint)", user, err => {
-        if (err) reject(err);
-        else resolve();
+    db.then(conn => {
+      conn.run("INSERT INTO data (username, email, publicKey, name, bio, avatar) VALUES ($username, $email, $publicKey, $name, $bio, $avatar)", row, function (err) {
+        if (err) {
+					return reject(err);
+				}
+
+				user.id = this.lastID;
+				resolve(user);
       });
-    });
+    }).catch(reject);
   });
 }
