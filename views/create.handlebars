@@ -1,9 +1,22 @@
-<h1>{{title}}</h1>
-{{#if err}}<input type="hidden" name="err" value="{{err}}">{{/if}}
+<h3>Safe, secure, contact</h3>
+<p>Maybe you’ve heard these different marketing terms, maybe you haven’t. Either way, let me help to clarify the difference between them, because you should have all three if you want to market successfully. And knowing what they are may be your first step to accomplishing all three for your business.</p>
+<h2>How does it work?</h2>
+<div>
+  Stuff
+</div>
+<div>
+  <a href="/faq" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Ok, but I’d like to know more</a>
+  <a href="#sign-up" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Sure, I’ll give it a go</a>
+</div>
+
+<h2 id="sign-up">Sign up with initiate</h2>
+
 <form action="/" method="post">
-  <input type="text" name="username" value="{{username}}" placeholder="Keybase username" />
-  <br>
-  <input type="email" name="email" value="{{email}}" placeholder="Email address" validate />
-  <br>
-  <button type="submit">Create</button>
+  <div class="mdl-card">
+    <input type="text" name="username" value="{{username}}" placeholder="Keybase username" />
+    <input type="email" name="email" value="{{email}}" placeholder="Email address" validate />
+    <button class="mdl-button mdl-js-button whats-this-button">What's this?</button>
+  </div>
+  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Sign me up</button>
 </form>
+{{#if err}}<input type="hidden" name="err" value="{{err}}">{{/if}}

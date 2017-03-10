@@ -1,6 +1,8 @@
+$color--primary: #C04848;
+$color--accent: #530748;
 
 .layout-transparent {
-  background: linear-gradient(-45deg, #480048, #C04848);
+  background: linear-gradient(-45deg, #480048, $color--primary);
 }
 .layout-transparent .mdl-layout__header,
 .layout-transparent .mdl-layout__drawer-button {
