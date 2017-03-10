@@ -4,11 +4,13 @@ encrypt.init(window.kbpgp);
 
 const errEl = document.querySelector('[name="err"]');
 const bareMessageEl = document.querySelector('[name="bare-message"]');
+const bareNameEl = document.querySelector('[name="bare-name"]');
 const messageEl = document.querySelector('[name="message"]');
 const publicKeyEl = document.querySelector('[name="public-key"]');
 
-function encryptBareMessage(e) {
+function encryptMessage() {
   const bareMessage = bareMessageEl.value;
+  const bareName = bareNameEl.value;
 
   if (!bareMessage) {
     messageEl.value = '';
@@ -16,7 +18,11 @@ function encryptBareMessage(e) {
     return;
   }
 
-  encrypt(publicKeyEl.value, bareMessage)
+  const toEncrypt = `Name: ${bareName ? bareName : 'Anonymous'}
+Message:
+${bareMessage}`;
+
+  encrypt(publicKeyEl.value, toEncrypt)
   .then(value => {
     messageEl.value = value;
   });
@@ -26,8 +32,12 @@ if (errEl) {
   console.error(errEl.value);
 }
 
-if (bareMessageEl && publicKeyEl && publicKeyEl.value && messageEl) {
-  bareMessageEl.oninput = encryptBareMessage; // ?
-  bareMessageEl.onkeyup = encryptBareMessage; // ?
-  bareMessageEl.onpaste = encryptBareMessage; // ?
+if (bareMessageEl && bareNameEl && publicKeyEl && publicKeyEl.value && messageEl) {
+  bareNameEl.oninput = encryptMessage;
+  bareNameEl.onkeyup = encryptMessage;
+  bareNameEl.onpaste = encryptMessage;
+  bareMessageEl.oninput = encryptMessage;
+  bareMessageEl.onkeyup = encryptMessage;
+  bareMessageEl.onpaste = encryptMessage;
+  encryptMessage();
 }
