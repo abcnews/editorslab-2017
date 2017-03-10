@@ -1,7 +1,27 @@
-body {
-  font: 14px "Roboto", Helvetica, Arial, sans-serif;
+
+.layout-transparent {
+  background: linear-gradient(-45deg, #480048, #C04848);
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
 }
 
-a {
-  color: #00B7FF;
+img.logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 169px;
+}
+
+.page-content {
+  max-width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+
+
+  header {
+    text-align: center;
+  }
 }
