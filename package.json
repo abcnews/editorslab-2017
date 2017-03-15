@@ -2,6 +2,7 @@
   "name": "editorslab-2017",
   "version": "1.0.1",
   "private": true,
+  "license": "mit",
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
